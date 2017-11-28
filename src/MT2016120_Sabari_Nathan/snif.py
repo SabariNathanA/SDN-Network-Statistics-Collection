@@ -13,7 +13,7 @@ while True:
 			if(ip_pair not in list):		
 				list.append(ip_pair)
 				#replace this with MySQL connection
-				print (ip_pair)
+				print ip_pair
 		if (pkt.haslayer(TCP)):
         		tcp_sport=pkt[TCP].sport
         		tcp_dport=pkt[TCP].dport
