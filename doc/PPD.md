@@ -27,7 +27,7 @@ found that PCE would be an overkill for classification of flows.
 2. Write a Tomcat servlet to accept the queries from Mininet hosts.
 3. Enable look-up in MySQL and respond to queries.
 
-# Update for week 15-21/11/2017
+# Update for weeks 15-28/11/2017
 
 ## Sabari Nathan
 1. Discussed with Prof. Samar for the topology.
@@ -45,7 +45,7 @@ found that PCE would be an overkill for classification of flows.
 2. Decided and created the database schema to serve as the backend.
 
 
-# Agenda for week 22-28/11/2017
+# Agenda for week 28/11/2017 - 3/12/2017
 
 ## Sabari Nathan:
 1. Unit testing & scaling up.
