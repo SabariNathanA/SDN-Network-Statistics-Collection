@@ -6,3 +6,8 @@ wget https://pypi.python.org/packages/ac/14/c792a14b9f8bc4bb9c74c0594c167a2da36e
  cd scapy-2.3.3/
  
  sudo python setup.py install
+
+## Dependancies
+sudo apt-get install python-dev tcpdump graphviz imagemagick python-pip
+pip install numpy
+pip install pycrypto
