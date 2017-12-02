@@ -17,13 +17,14 @@ pip install numpy
 pip install pycrypto
 
 # mysql-connector
-wget http://dev.mysql.com/get/Downloads/Connector-Python/mysql-connector-python-2.1.7.tar.gz
 
-tar -xf mysql-connector-python-2.1.7.tar.gz
+-   wget http://dev.mysql.com/get/Downloads/Connector-Python/mysql-connector-python-2.1.7.tar.gz
 
-cd mysql-connector-python-2.1.7
+-   tar -xf mysql-connector-python-2.1.7.tar.gz
 
-sudo python setup.py install
+-   cd mysql-connector-python-2.1.7
+
+-   sudo python setup.py install
 
 # Granting access to Mininet to access MySQL
 Go to mysql cnf file and commnt out the line saying binding the mysql to localhost.
@@ -38,4 +39,3 @@ Inside the mysql terminal
     
     - FLUSH PRIVILEGES;
     
--------------DO------NOT-------RESTART------------
