@@ -31,6 +31,7 @@ Go to mysql cnf file and commnt out the line saying binding the mysql to localho
 Restart server.
 
 Inside the mysql terminal 
+
     - CREATE USER 'root'@'%' IDENTIFIED BY 'password';
     
     - GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
