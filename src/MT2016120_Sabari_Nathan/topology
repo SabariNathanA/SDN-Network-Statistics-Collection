@@ -1,0 +1,30 @@
+from mininet.net import Mininet
+from mininet.node import Controller, RemoteController
+from mininet.topo import Topo
+from mininet.link import TCLink  # So we can rate limit links
+from mininet.cli import CLI  # So we can bring up the Mininet CLI
+
+net = Mininet(topo=None, link=TCLink, build=False)
+#topo = Topo()  # Create an empty topology
+h1 = net.addHost("h1",mac='00:00:00:00:01')
+h2 = net.addHost("h2",mac='00:00:00:00:02')
+h3 = net.addHost("h3",mac='00:00:00:00:03')
+
+s1=net.addSwitch("s1", listenPort=6634, mac='00:00:00:00:20:01' )
+s2=net.addSwitch("s2", listenPort=6634, mac='00:00:00:00:10:01' )
+
+# Wire the switches and hosts together, links now have bandwidth and delay limits
+net.addLink("h1", "s1", bw=20.0, delay='10ms', use_htb=True)
+net.addLink("h2", "s1", bw=25.0, delay='10ms', use_htb=True)
+net.addLink("s1", "s2", bw=11.0, delay='40ms', use_htb=True)
+net.addLink("h3", "s2", bw=15.0, delay='7ms', use_htb=True)
+
+odl_c = net.addController('c0',controller=RemoteController,ip='192.168.56.1', port=6653)
+
+net.build()
+
+s1.start([odl_c])
+s2.start([odl_c])
+
+CLI(net)  # Bring up the mininet CLI
+net.stop()
