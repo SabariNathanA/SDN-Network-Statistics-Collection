@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flow xmlns="urn:opendaylight:flow:inventory">
+    <hard-timeout>1500</hard-timeout>
+    <idle-timeout>0</idle-timeout>
+    <priority>9999</priority>
+    <flow-name>flow3</flow-name>
+    <id>28</id>
+    <table_id>0</table_id>
+    <match>
+    	 <vlan-match>
+     <vlan-id>200</vlan-id>
+        </vlan-match>
+        </match>
+      <instructions>
+        <instruction>
+            <order>1</order>
+            <apply-actions>
+                <action>
+                     
+                        <drop-action/>
+                     
+                    <order>1</order>
+            	</action>
+            </apply-actions>
+        </instruction>
+          </instructions>
+</flow>
