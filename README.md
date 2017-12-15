@@ -7,7 +7,16 @@ this limitation and hence be a pillar for network suggested TCP Congestion contr
 ##  Version 1 - StatCollection from all switch interfaces using Python script.
 ### Modules
 #### 1. Topology Generation [source code](https://gitlab.com/IIITB_SDN_2017/MT2016119_MT2016120_StatCollection/blob/master/src/MT2016120_Sabari_Nathan/Generator.py)
--
+* A generic topology generator. 
+* Input is a CSV file whose 1st column specifies all nodes
+    * Hosts' name should start with _'h'_
+    * Switches' name should start with _'s'_
+    * Controllers' name should start with _'c'_
+* Since the internet can have different controllers controlling different part of network, we have support for different controllers. With a many to one mapping between Switch and controllers.
+* Which controller controller controls which switch can also be specified.
+* Run the script using `sudo python Generator.py`
+* Make sure you are in the corresponding directory + followed all [set-up instructions](https://gitlab.com/IIITB_SDN_2017/MT2016119_MT2016120_StatCollection/blob/master/src/MT2016120_Sabari_Nathan/Setup%20instructions.md)
+* 
 
 ## Issues to be addressed
 1. Communicating the node statistics from each intermediate network device to SDN controller.
