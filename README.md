@@ -1,7 +1,13 @@
-## Problem Definition
+# Collection of statistics to understand the instantaneous behaviour of the underlying network 
 
+## Problem Definition
 The state of the art congestion control algorithms are based on End to End packet statistics. Leveraging the network feedback for congestion control is another promising dimension, but the catch is the availability of network statistics at one place. Software Defined Networking can mitigate
 this limitation and hence be a pillar for network suggested TCP Congestion control.
+
+##  Version 1 - StatCollection from all switch interfaces using Python script.
+### Modules
+#### 1. Topology Generation [source code](https://gitlab.com/IIITB_SDN_2017/MT2016119_MT2016120_StatCollection/blob/master/src/MT2016120_Sabari_Nathan/Generator.py)
+-
 
 ## Issues to be addressed
 1. Communicating the node statistics from each intermediate network device to SDN controller.
