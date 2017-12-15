@@ -20,7 +20,6 @@ The statistics collection part has 2 versions as mentioned below.
 
 
 ## Modules
-
 #### 1. Topology Generation [Source code](https://gitlab.com/IIITB_SDN_2017/MT2016119_MT2016120_StatCollection/blob/master/src/MT2016120_Sabari_Nathan/Generator.py)
 * A generic topology generator. 
 * Input is a CSV file whose 1st column specifies all nodes
