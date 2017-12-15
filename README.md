@@ -4,8 +4,23 @@
 The state of the art congestion control algorithms are based on End to End packet statistics. Leveraging the network feedback for congestion control is another promising dimension, but the catch is the availability of network statistics at one place. Software Defined Networking can mitigate
 this limitation and hence be a pillar for network suggested TCP Congestion control.
 
-##  Version 1 - StatCollection from all switch interfaces using Python script.
-### Modules
+## How does it work? and Versions
+A topology created in Mininet having some TCP flows happening between hosts in the topology. User queries a centralised server for getting the needed statstics.
+The statistics collection part has 2 versions as mentioned below.
+
+1. StatCollection from all switch interfaces using Python script.
+2. Using the statistics collected by ODL. 
+
+### Steps
+1. As TCP connection takes place, the sniffer finds the path taken by the connection.
+2. In the background statistics are being collected for all interfaces (of all switches).
+3. When the user queries for a particular connection,
+    1. The list of intermediate switches which were used by the connection is found out.
+    2. The statistics for each of these interfaces are extracted and sent back to the client.
+
+
+## Modules
+
 #### 1. Topology Generation [Source code](https://gitlab.com/IIITB_SDN_2017/MT2016119_MT2016120_StatCollection/blob/master/src/MT2016120_Sabari_Nathan/Generator.py)
 * A generic topology generator. 
 * Input is a CSV file whose 1st column specifies all nodes
@@ -16,7 +31,7 @@ this limitation and hence be a pillar for network suggested TCP Congestion contr
 * Which controller controller controls which switch can also be specified.
 * 2nd column onwards specifies the nodes that are neighbours of the node in th e corresponding row's first column.
 * Currently the host-switch links have 5Mbps link with a delay of 5ms and the switch to switch links have 100Mbps link with 7.5ms delay.
-* Make sure you are in the corresponding directory + followed all [set-up instructions](https://gitlab.com/IIITB_SDN_2017/MT2016119_MT2016120_StatCollection/blob/master/src/MT2016120_Sabari_Nathan/Setup%20instructions.md)
+* Make sure you are in the corresponding directory + followed all [Set-up instructions](https://gitlab.com/IIITB_SDN_2017/MT2016119_MT2016120_StatCollection/blob/master/src/MT2016120_Sabari_Nathan/Setup%20instructions.md)
 * Run the script using `sudo python Generator.py`
 * Once the script runs, it generates 4 different files  (3 Python scripts and 1 CSV file).
     * topo_consolidated.py
@@ -31,11 +46,15 @@ this limitation and hence be a pillar for network suggested TCP Congestion contr
 * If unique, it is recorded by sending to MySQL running at an external system. 
 * This helps in figuring out the path taken by each TCP flow. 
 
-#### 3. StatCollector 
-* 
+#### 3. StatCollector - Version 1
+* Internally runs the command `ovs-vsctl get Interface <interface_name> statistics`
+* Parses the output and pushes to MySQL server.
 
 #### 4. Web service to query 
+*
 
+#### 5. StatCollector - Version 2
+*
 
 ## Running the project
 * `sudo python topo_consolidated.py`
@@ -45,13 +64,10 @@ this limitation and hence be a pillar for network suggested TCP Congestion contr
     * `xterm <any switch name>`
     * Make sure MySQL server is running and accepting connections
     * In the xterm window run `sudo python stat_consolidated.py`
-* In case you want to run the version 2 of this project @maneesha
- 
-## Issues to be addressed
-1. Communicating the node statistics from each intermediate network device to SDN controller.
-2. A web-based platform at the controller which shall respond to queries raised by the systems who wish to perform network suggested congestion control.
-3. The intelligent decisions that the client would make, such as changing the routing metric (Layer 3), changing the token replenishment rate of the token buckets (Layer 2), setting the congestion window of TCP (Layer 4).
+
+* In case you want to run the version 2 of this project @maneeshashivakumar to fill this
+
 
 ## Project delegation
-1. Statistics collection and SDN-Node communication – Sabari Nathan A. (MT2016120).
-2. Creating web interface between client and SDN controller for information retrieval – Maneesha S. (MT2016119)
+1. Statistics collection and SDN-Node communication – Sabari Nathan A. (MT2016120). @sabarinathana
+2. Creating web interface between client and SDN controller for information retrieval – Maneesha S. (MT2016119). @maneeshashivakumar
