@@ -46,7 +46,7 @@ The statistics collection part has 2 versions as mentioned below.
 * If unique, it is recorded by sending to MySQL running at an external system. 
 * This helps in figuring out the path taken by each TCP flow. 
 
-#### 3. StatCollector - Version 1
+#### 3. StatCollector - Version 1 [Source code](https://gitlab.com/IIITB_SDN_2017/MT2016119_MT2016120_StatCollection/blob/master/src/MT2016120_Sabari_Nathan/stat_collector.py)
 * Internally runs the command `ovs-vsctl get Interface <interface_name> statistics`
 * Parses the output and pushes to MySQL server.
 
