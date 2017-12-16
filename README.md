@@ -50,10 +50,19 @@ The statistics collection part has 2 versions as mentioned below.
 * Parses the output and pushes to MySQL server.
 
 #### 4. Web service to query 
-*
+* Enter the source ip address and the destination IP address.
+* It displays a list of intermediate switches,which is the path used by a packet to travel from the given source to destination
+* On selecting a particular node,it displays the overall statistics which includes all the ports the node has.
+* It also displays the names and statistics of the ports which the packet travels through in the given node.
+* Further,the statistics at port level is also displayed.
+* Using these statistics collected at node level,the user at the source can modify the TCP congestion window dynamically.
 
 #### 5. StatCollector - Version 2
-*
+* When the user enters the source and destination IP,we retrieve a list of intermediated nodes,it uses in its path.
+* Using a HTTP request we connect to the ODL using a servlet which has the required authentication(username,password of the ODL controller).
+* We retrieve all the required statistics from the ODL in the form of JSON,parse it and store the values to MySQL server.
+* These values are retrieved and displayed to the user,which is similar to the 'Web service to query' in Version 1,step 3 onwards.
+
 
 ## Running the project
 * `sudo python topo_consolidated.py`
