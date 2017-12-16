@@ -50,6 +50,9 @@ The statistics collection part has 2 versions as mentioned below.
 * Parses the output and pushes to MySQL server.
 
 #### 4. Web service to query 
+* Run the SDN_frontend and MyService_SDN on the tomcat server.
+* Change the url,username and password in ConnectionProvider.java inside dBConn of MyService_SDN to connect to the MySQL server
+* Launch the Odl.html page.
 * Enter the source ip address and the destination IP address.
 * It displays a list of intermediate switches,which is the path used by a packet to travel from the given source to destination
 * On selecting a particular node,it displays the overall statistics which includes all the ports the node has.
@@ -73,8 +76,16 @@ The statistics collection part has 2 versions as mentioned below.
     * Make sure MySQL server is running and accepting connections
     * In the xterm window run `sudo python stat_consolidated.py`
 
-* In case you want to run the version 2 of this project @maneeshashivakumar to fill this
-
+* In case you want to run the version 2 of this project
+    * Make sure the ODL server is running.
+    * Change the username and password in ODL.java inside SDN_frontend to connect to the ODL server
+    * You need not run  `sudo python stat_consolidated.py` as the stats are collected by a HTTP request when we enter the source and destination.
+    
+* To make use of the rest service directly without form
+    * Change the Formparam to QueryParam in the functionname of each service to send the required parameters in the Url.
+    * Change the annotations from @POST to @GET.
+    * Connect to the web service using the suitable Url and pass the parameters(eg:src_ip,dest_ip)
+    * The output is in the form of JSON.
 
 ## Project delegation
 1. Statistics collection and SDN-Node communication – Sabari Nathan A. (MT2016120). @sabarinathana
