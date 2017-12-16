@@ -49,8 +49,7 @@ The statistics collection part has 2 versions as mentioned below.
 * Internally runs the command `ovs-vsctl get Interface <interface_name> statistics`
 * Parses the output and pushes to MySQL server.
 
-#### 4. Web service to query [Source code](https://gitlab.com/IIITB_SDN_2017/MT2016119_MT2016120_StatCollection/blob/master/src/MT2016119_S_Maneesha/Final%20Codes/MyService_SDN.war)
-                             [Source code](https://gitlab.com/IIITB_SDN_2017/MT2016119_MT2016120_StatCollection/blob/master/src/MT2016119_S_Maneesha/Final%20Codes/SDN_frontend.war)
+#### 4. Web service to query [MyService_SDN](https://gitlab.com/IIITB_SDN_2017/MT2016119_MT2016120_StatCollection/blob/master/src/MT2016119_S_Maneesha/Final%20Codes/MyService_SDN.war)[SDN_frontend](https://gitlab.com/IIITB_SDN_2017/MT2016119_MT2016120_StatCollection/blob/master/src/MT2016119_S_Maneesha/Final%20Codes/SDN_frontend.war)
 * Run the SDN_frontend and MyService_SDN on the tomcat server.
 * Change the url,username and password in ConnectionProvider.java inside dBConn of MyService_SDN to connect to the MySQL server.
 * Launch the Odl.html page of SDN_frontend.
