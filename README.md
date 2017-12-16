@@ -51,8 +51,8 @@ The statistics collection part has 2 versions as mentioned below.
 
 #### 4. Web service to query 
 * Run the SDN_frontend and MyService_SDN on the tomcat server.
-* Change the url,username and password in ConnectionProvider.java inside dBConn of MyService_SDN to connect to the MySQL server
-* Launch the Odl.html page.
+* Change the url,username and password in ConnectionProvider.java inside dBConn of MyService_SDN to connect to the MySQL server.
+* Launch the Odl.html page of SDN_frontend.
 * Enter the source ip address and the destination IP address.
 * It displays a list of intermediate switches,which is the path used by a packet to travel from the given source to destination
 * On selecting a particular node,it displays the overall statistics which includes all the ports the node has.
