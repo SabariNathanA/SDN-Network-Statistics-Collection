@@ -1,4 +1,4 @@
-# Collection of statistics to understand the instantaneous behaviour of the underlying network 
+# Statistics collection to perceive the instantaneous behaviour of an SDN enabled network 
 
 ## Problem Definition
 The state of the art congestion control algorithms are based on End to End packet statistics. Leveraging the network feedback for congestion control is another promising dimension, but the catch is the availability of network statistics at one place. Software Defined Networking can mitigate
